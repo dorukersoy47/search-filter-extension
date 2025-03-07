@@ -9,8 +9,9 @@
   <h2>Filter Settings</h2>
   <form id = 'searchForm'>
     <input type = "text" id ="searchInput" placeholder="Phrase to search..."> 
+
     <label for="lastUpdate"> Choose Last Update </label>
-    <select id="lastUpdate" onchange="updateLastUpdate()">
+    <select id="lastUpdate">
       <option value="">anytime</option>
       <option value="qdr:h">Past hour</option>
       <option value="qdr:d">Past 24 hours</option>
@@ -18,6 +19,31 @@
       <option value="qdr:m">Past month</option>
       <option value="qdr:y">Past year</option>
     </select>
+    
+    <label for = "country"> Choose Country of Origin</label>
+    <select id="country">
+      <option value="">anywhere</option>
+      <option value="countryTR">Turkey </option>
+      <option value="countryUK">United Kondom</option>
+      <option value="countryCA">Drake</option>
+      <option value="countryUS">McDonalds</option>
+      <option value="countryCN">John China</option>
+      <option value="countryMY">Malaysia</option>
+      <option value="countryIN">Ma'am dont redeem it</option>
+      <option value="countryGR">Fake Turkey</option>
+      <option value="countryFR">Baguette</option>
+      <option value="countryJM">BOMBOKLATT</option>
+    </select>
+    
+    <label for = "fileType"> Choose file type</label>
+    <select id="fileType">
+      <option value="">any type</option>
+      <option value="pdf">Adobe Acrobat pdf </option>
+      <option value="doc">Microsoft Word</option>
+      <option value="xls">Excel</option>
+      <option value="kml">Google Earth kml</option>
+    </select>
+
     <button type="submit"> submit </button>
   </form>
   <script src="popup.js"></script>
