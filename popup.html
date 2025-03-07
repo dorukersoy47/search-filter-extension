@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Filter Extension v1.0</title>
+  <link rel = "stylesheet" href="style.css">
+  
+</head>
+<body>
+  <h2>Filter Settings</h2>
+  <form id = 'searchForm'>
+    <label for="lastUpdate"> Choose Last Update </label>
+    <select id="lastUpdate" onchange="updateLastUpdate()">
+      <option value="Option1">anytime</option>
+      <option value="Option2">Last 24 hours</option>
+      <option value="Option3">Upto a week ago</option>
+      <option value="Option4">Upto a month ago</option>
+      <option value="Option5">Upto a year ago</option>
+    </select>
+    <button type="submit"> submit </button>
+  </form>
+  <script src="popup.js"></script>
+</body>
+</html>

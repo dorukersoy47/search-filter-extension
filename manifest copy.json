@@ -1,0 +1,35 @@
+{
+    "name": "Filter Extension",
+    "version": "1.0",
+    "description": "A simple extension to filter search results.",
+    "manifest_version": 3,
+    "icons": {
+    "16": "images/funnel_icon_16.png",
+    "48": "images/funnel_icon_48.png",
+    "128": "images/funnel_icon_128.png"
+  },
+    "permissions": [
+      "activeTab",
+      "scripting"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+        "default_icon":{
+            "16": "images/funnel_icon_16.png",
+            "48": "images/funnel_icon_48.png",
+            "128": "images/funnel_icon_128.png"   
+        },  
+      "default_popup": "popup.html"
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "https://www.google.com/*",
+          "https://www.bing.com/*"
+        ],
+        "js": ["content_scripts.js"]
+      }
+    ]
+  }
