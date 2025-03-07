@@ -18,10 +18,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 document.getElementById('searchForm').addEventListener('submit', function(event) {
   event.preventDefault();
+  const searchInput = document.getElementById("searchInput").value;
   const lastUpdate = document.getElementById("lastUpdate").value;
-  let query = 'https://www.google.com/search?as_q=';
-  if (lastUpdate) query += `&lr=${lastUpdate}`;
+  let query = 'https://www.google.com/search?as_q=' + encodeURIComponent(searchInput);
+  if (lastUpdate) query += `&tbs=${lastUpdate}`;
 
-  chrome.tabs.create({ url: query });
+  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    chrome.tabs.update(tabs[0].id, { url: query });
+  });
   console.log("Updated");
 });
