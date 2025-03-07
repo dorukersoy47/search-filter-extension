@@ -1,17 +1,60 @@
 document.addEventListener('DOMContentLoaded', (event) => {
   const selectElement = document.getElementById("lastUpdate");
-  const savedValue = localStorage.getItem('lastUpdate');
+  const countryElement = document.getElementById("country");
+  const fileTypeElement = document.getElementById("fileType");
+  const searchInputElement = document.getElementById("searchInput");
+
+  const savedLastUpdate = localStorage.getItem('lastUpdate');
+  const savedCountry = localStorage.getItem('country');
+  const savedFileType = localStorage.getItem('fileType');
+  const savedSearchInput = localStorage.getItem('searchInput');
   
-  if (savedValue) {
-    selectElement.value = savedValue;
+  if (savedLastUpdate) {
+    selectElement.value = savedLastUpdate;
   } else {
-    selectElement.value = "Option1";
+    selectElement.value = "";
+  }
+
+  if (savedCountry) {
+    countryElement.value = savedCountry;
+  } else {
+    countryElement.value = "";
+  }
+
+  if (savedFileType) {
+    fileTypeElement.value = savedFileType;
+  } else {
+    fileTypeElement.value = "";
+  }
+
+  if (savedSearchInput) {
+    searchInputElement.value = savedSearchInput;
+  } else {
+    searchInputElement.value = "";
   }
 
   selectElement.addEventListener('change', function() {
     const update1 = selectElement.value;
     localStorage.setItem('lastUpdate', update1);
     console.log('Last Update:', update1);
+  });
+
+  countryElement.addEventListener('change', function() {
+    const country = countryElement.value;
+    localStorage.setItem('country', country);
+    console.log('Country:', country);
+  });
+
+  fileTypeElement.addEventListener('change', function() {
+    const fileType = fileTypeElement.value;
+    localStorage.setItem('fileType', fileType);
+    console.log('File Type:', fileType);
+  });
+
+  searchInputElement.addEventListener('input', function() {
+    const searchInput = searchInputElement.value;
+    localStorage.setItem('searchInput', searchInput);
+    console.log('Search Input:', searchInput);
   });
 });
 
