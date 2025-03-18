@@ -2,50 +2,65 @@
 <html>
 <head>
   <title>Filter Extension v1.0</title>
-  <link rel = "stylesheet" href="style.css">
-  
+  <!-- <link rel = "stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
 </head>
-<body>
-  <h2>Filter Settings</h2>
-  <form id = 'searchForm'>
-    <input type = "text" id ="searchInput" placeholder="Phrase to search..."> 
 
-    <label for="lastUpdate"> Choose Last Update </label>
-    <select id="lastUpdate">
-      <option value="">anytime</option>
-      <option value="qdr:h">Past hour</option>
-      <option value="qdr:d">Past 24 hours</option>
-      <option value="qdr:w">Past week</option>
-      <option value="qdr:m">Past month</option>
-      <option value="qdr:y">Past year</option>
-    </select>
-    
-    <label for = "country"> Choose Country of Origin</label>
-    <select id="country">
-      <option value="">anywhere</option>
-      <option value="countryTR">Turkey </option>
-      <option value="countryGB">United Kondom</option>
-      <option value="countryCA">Drake</option>
-      <option value="countryUS">McDonalds</option>
-      <option value="countryCN">John China</option>
-      <option value="countryMY">Malaysia</option>
-      <option value="countryIN">Ma'am dont redeem it</option>
-      <option value="countryGR">Fake Turkey</option>
-      <option value="countryFR">Baguette</option>
-      <option value="countryJM">BOMBOKLATT</option>
-    </select>
-    
-    <label for = "fileType"> Choose file type</label>
-    <select id="fileType">
-      <option value="">any type</option>
-      <option value="pdf">Adobe Acrobat pdf </option>
-      <option value="doc">Microsoft Word</option>
-      <option value="xls">Excel</option>
-      <option value="kml">Google Earth kml</option>
-    </select>
+<body class="bg-dark text-light p-2 ">
+  <div class="container-fluid" style="min-width: 500px;">
+    <h2 class="text-center text-primary mb-4">Filter Settings</h2>
 
-    <button type="submit"> submit </button>
-  </form>
+    <form id="searchForm" class="p-3 border rounded border-primary shadow-lg">
+      <div class="mb-3">
+        <input type="text" id ="searchInput" class="form-control form-control-lg border-primary" placeholder="Phrase to search..."> 
+      </div>
+
+      <div class="mb-3">
+        <label for="lastUpdate" class="form-label fw-bold text-info"> Choose Last Update </label>
+        <select id="lastUpdate" class="form-select border-primary">
+          <option value="">Any</option>
+          <option value="qdr:h">Past hour</option>
+          <option value="qdr:d">Past 24 hours</option>
+          <option value="qdr:w">Past week</option>
+          <option value="qdr:m">Past month</option>
+          <option value="qdr:y">Past year</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for = "country" class="form-label fw-bold text-info">Choose Country of Origin</label>
+        <select id="country" class="form-select border-primary">
+          <option value="">Any</option>
+          <option value="countryTR">Turkey </option>
+          <option value="countryGB">United Kondom</option>
+          <option value="countryCA">Drake</option>
+          <option value="countryUS">McDonalds</option>
+          <option value="countryCN">John China</option>
+          <option value="countryMY">Malaysia</option>
+          <option value="countryIN">Ma'am dont redeem it</option>
+          <option value="countryGR">Fake Turkey</option>
+          <option value="countryFR">Baguette</option>
+          <option value="countryJM">BOMBOKLATT</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for = "fileType" class="form-label fw-bold text-info">Choose file type</label>
+        <select id="fileType" class="form-select border-primary">
+          <option value="">Any</option>
+          <option value="pdf">Adobe Acrobat pdf </option>
+          <option value="doc">Microsoft Word</option>
+          <option value="xls">Excel</option>
+          <option value="kml">Google Earth kml</option>
+        </select>
+      </div>
+
+
+      <button type="submit" class="btn btn-primary w-100">Submit</button>
+    </form>
+  </div>
+
   <script src="popup.js"></script>
 </body>
+
 </html>
