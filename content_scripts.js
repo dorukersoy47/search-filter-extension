@@ -6,6 +6,8 @@ chrome.storage.local.get(['filterEnabled']).then((response) => {
     chrome.storage.local.get(['blacklist', 'whitelist']).then((response) => {
       if (!response || !response.blacklist || !response.whitelist) {
         console.error("Invalid response received for blacklist/whitelist");
+        console.log(whitelist);
+        console.log(blacklist);
         return;
       }
 
