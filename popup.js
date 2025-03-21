@@ -114,4 +114,3 @@ document.addEventListener('DOMContentLoaded', () => {
 function contentToList(content) {
   return content.split('\n').map(line => line.trim()).filter(line => line);
 }
-
