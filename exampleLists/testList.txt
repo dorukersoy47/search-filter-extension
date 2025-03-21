@@ -1,3 +1,7 @@
 bbc.co.uk
+www.bbc.co.uk
+news.bbc.co.uk
 theguardian.com
 cnn.com
+www.bbc.com
+bbc.com
