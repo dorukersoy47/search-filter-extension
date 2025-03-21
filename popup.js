@@ -12,8 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   chrome.storage.local.get([
     'lastUpdate', 'country', 'fileType', 'searchInput', 'language',
-    'filterEnabled', 'blacklist', 'whitelist', 
-    "blacklistFileName", "whitelistFileName"
+    'filterEnabled', "blacklistFileName", "whitelistFileName"
   ]).then((data) => {
     selectElement.value = data.lastUpdate || "";
     countryElement.value = data.country || "";
