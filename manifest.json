@@ -32,5 +32,14 @@
         ],
         "js": ["content_scripts.js"]
       }
+    ],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "bootstrap/bootstrap.bundle.min.js",
+          "bootstrap/bootstrap.min.css"
+        ],
+        "matches": ["<all_urls>"]
+      }
     ]
   }

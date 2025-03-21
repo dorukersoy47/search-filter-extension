@@ -8,7 +8,14 @@
 
 <body class="bg-dark text-light p-2 ">
   <div class="container-fluid" style="min-width: 500px;">
+    <button type="button" class="btn btn-link position-absolute top-0 end-0 p-2 me-4" data-bs-toggle="popover" data-bs-placement="left"
+            data-bs-content="This extension helps filter search results based on keywords, country, and file type. Select your preferences and hit 'Submit.'">
+      <i class="bi bi-info-circle text-white" style="font-size: 1.5rem;">i</i>
+    </button>
     <h2 class="text-center text-primary mb-4">Filter Settings</h2>
+    <!-- <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
+      Popover on bottom
+    </button> -->
 
     <form id="searchForm" class="p-3 border rounded border-primary shadow-lg">
       <div class="mb-3">
@@ -78,6 +85,7 @@
     </div>
   </div>
 
+  <script src="bootstrap/bootstrap.bundle.min.js"></script>
   <script src="popup.js"></script>
 </body>
 </html>
