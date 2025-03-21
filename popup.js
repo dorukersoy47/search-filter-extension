@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const countryElement = document.getElementById("country");
   const fileTypeElement = document.getElementById("fileType");
   const searchInputElement = document.getElementById("searchInput");
+  const languageElement = document.getElementById("language");
   const blacklistSelect = document.getElementById('blacklistInput');
   const whitelistSelect = document.getElementById('whitelistInput');
   const filterToggle = document.getElementById('filterToggle');
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const blacklistFileNameSpan = document.getElementById('blacklistFileName');
 
   chrome.storage.local.get([
-    'lastUpdate', 'country', 'fileType', 'searchInput', 
+    'lastUpdate', 'country', 'fileType', 'searchInput', 'language',
     'filterEnabled', 'blacklist', 'whitelist', 
     "blacklistFileName", "whitelistFileName"
   ]).then((data) => {
@@ -18,9 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
     countryElement.value = data.country || "";
     fileTypeElement.value = data.fileType || "";
     searchInputElement.value = data.searchInput || "";
+    languageElement.value = data.language || "";
+
     filterToggle.checked = data.filterEnabled || false;
-    // blacklistSelect.value = data.blacklistFileName || "";
-    // whitelistSelect.value = data.whitelistFileName || "";
     whitelistFileNameSpan.textContent = data.whitelistFileName || "No file loaded";
     blacklistFileNameSpan.textContent = data.blacklistFileName || "No file loaded";
   }).catch((error) => {
@@ -78,16 +79,24 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Search Input:', searchInput);
   });
 
+  languageElement.addEventListener('change', function() {
+    const language = languageElement.value;
+    chrome.storage.local.set({'language': language});
+    console.log('Language:', language);
+  });
+
   document.getElementById('searchForm').addEventListener('submit', function(event) {
     event.preventDefault();
     const searchInput = document.getElementById("searchInput").value;
     const lastUpdate = document.getElementById("lastUpdate").value;
     const country = document.getElementById("country").value;
     const fileType = document.getElementById("fileType").value;
+    const language = document.getElementById("language").value;
     let query = 'https://www.google.com/search?as_q=' + encodeURIComponent(searchInput);
     if (lastUpdate) query += `&tbs=${lastUpdate}`;
     if (country) query += `&cr=${country}`;
     if (fileType) query += `&as_filetype=${fileType}`;
+    if (language) query += `&lr=${language}`;
 
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
       chrome.tabs.update(tabs[0].id, { url: query });
