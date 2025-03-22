@@ -170,3 +170,14 @@ document.addEventListener('DOMContentLoaded', () => {
     return content.split("\n").map(line => line.trim()).filter(line => line)
   }
 })
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Initialize Bootstrap popovers
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+  popoverTriggerList.forEach(function (popoverTriggerEl) {
+      new bootstrap.Popover(popoverTriggerEl, {
+          container: 'body',
+          trigger: 'hover' // Change to 'click' if needed
+      });
+  });
+});
