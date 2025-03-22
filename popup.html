@@ -2,28 +2,22 @@
 <html>
 <head>
   <title>Filter Extension v1.0</title>
-  <!-- <link rel = "stylesheet" href="style.css"> -->
   <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
 </head>
-
-<body class="bg-dark text-light p-2 ">
+<body class="bg-dark text-light p-2">
   <div class="container-fluid" style="min-width: 500px;">
-    <button type="button" class="btn btn-link position-absolute top-0 end-0 p-2 me-4" data-bs-toggle="popover" data-bs-placement="left"
+    <button type="button" class="btn btn-link position-absolute top-0 end-0 p-2 me-4"
+            data-bs-toggle="popover" data-bs-placement="left"
             data-bs-content="This extension helps filter search results based on keywords, country, and file type. Select your preferences and hit 'Submit.'">
       <i class="bi bi-info-circle text-white" style="font-size: 1.5rem;">i</i>
     </button>
     <h2 class="text-center text-primary mb-4">Filter Settings</h2>
-    <!-- <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
-      Popover on bottom
-    </button> -->
-
     <form id="searchForm" class="p-3 border rounded border-primary shadow-lg">
       <div class="mb-3">
-        <input type="text" id ="searchInput" class="form-control form-control-lg border-primary" placeholder="Phrase to search..."> 
+        <input type="text" id="searchInput" class="form-control form-control-lg border-primary" placeholder="Phrase to search..." />
       </div>
-
       <div class="mb-3">
-        <label for="lastUpdate" class="form-label fw-bold text-info"> Choose Last Update </label>
+        <label for="lastUpdate" class="form-label fw-bold text-info">Choose Last Update</label>
         <select id="lastUpdate" class="form-select border-primary">
           <option value="">Any</option>
           <option value="qdr:h">Past hour</option>
@@ -33,9 +27,8 @@
           <option value="qdr:y">Past year</option>
         </select>
       </div>
-
       <div class="mb-3">
-        <label for = "country" class="form-label fw-bold text-info">Choose Country of Origin</label>
+        <label for="country" class="form-label fw-bold text-info">Choose Country of Origin</label>
         <select id="country" class="form-select border-primary">
           <option value="">Any</option>
           <option value="countryBR">Brazil</option>
@@ -52,17 +45,16 @@
           <option value="countryRU">Russia</option>
           <option value="countryKR">South Korea</option>
           <option value="countryES">Spain</option>
-          <option value="countryTR">Turkey </option>
+          <option value="countryTR">Turkey</option>
           <option value="countryGB">United Kingdom</option>
           <option value="countryUS">United States</option>
         </select>
       </div>
-
       <div class="mb-3">
-        <label for = "fileType" class="form-label fw-bold text-info">Choose file type</label>
+        <label for="fileType" class="form-label fw-bold text-info">Choose file type</label>
         <select id="fileType" class="form-select border-primary">
           <option value="">Any</option>
-          <option value="pdf">Adobe Acrobat PDF </option>
+          <option value="pdf">Adobe Acrobat PDF</option>
           <option value="doc">Microsoft Word</option>
           <option value="xls">Microsoft Excel</option>
           <option value="ppt">Microsoft PowerPoint</option>
@@ -70,9 +62,8 @@
           <option value="txt">Text</option>
         </select>
       </div>
-      
       <div class="mb-3">
-        <label for = "language" class="form-label fw-bold text-info">Choose language</label>
+        <label for="language" class="form-label fw-bold text-info">Choose language</label>
         <select id="language" class="form-select border-primary">
             <option value="">Any</option>
             <option value="lang_ar">Arabic</option>
@@ -89,31 +80,37 @@
             <option value="lang_tr">Turkish</option>
         </select>
       </div>
-
       <button type="submit" class="btn btn-primary w-100">Submit</button>
     </form>
   </div>
-  
-  <hr class="bg-primary">
+  <hr class="bg-primary" />
   <div class="container-fluid" style="min-width: 500px;">
     <div class="mb-3">
       <label for="whitelistInput" class="form-label fw-bold text-info">Whitelist</label>
-      <input type="file" id="whitelistInput" class="form-control border-primary" accept=".txt">
+      <input type="file" id="whitelistInput" class="form-control border-primary" accept=".txt" />
       <span id="whitelistFileName" class="form-text text-light"></span>
     </div>
-
     <div class="mb-3">
       <label for="blacklistInput" class="form-label fw-bold text-info">Blacklist</label>
-      <input type="file" id="blacklistInput" class="form-control border-primary" accept=".txt">
+      <input type="file" id="blacklistInput" class="form-control border-primary" accept=".txt" />
       <span id="blacklistFileName" class="form-text text-light"></span>
     </div>
-
     <div class="form-check form-switch mb-3">
-      <input type="checkbox" id="filterToggle" class="form-check-input">
+      <input type="checkbox" id="filterToggle" class="form-check-input" />
       <label for="filterToggle" class="form-check-label text-light">Enable Filter</label>
     </div>
   </div>
-
+  <hr class="bg-primary" />
+  <div class="container-fluid" style="min-width: 500px;">
+    <div class="mb-3">
+      <label for="savedSettingsSelect" class="form-label text-info fw-bold">Saved Profiles</label>
+      <select id="savedSettingsSelect" class="form-select border-primary"></select>
+    </div>
+    <div class="mb-3">
+      <button id="saveSettingsButton" class="btn btn-secondary w-100 mb-1">Save Current Settings</button>
+      <button id="loadSettingsButton" class="btn btn-secondary w-100">Load Selected Settings</button>
+    </div>
+  </div>
   <script src="bootstrap/bootstrap.bundle.min.js"></script>
   <script src="popup.js"></script>
 </body>
