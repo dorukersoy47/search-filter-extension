@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedSettingsSelect = document.getElementById("savedSettingsSelect")
   const saveSettingsButton = document.getElementById("saveSettingsButton")
   const loadSettingsButton = document.getElementById("loadSettingsButton")
+  const deleteSettingsButton = document.getElementById("deleteSettingsButton")
 
   chrome.storage.local.get(["savedSettings"]).then((data) => {
     const savedSettings = data.savedSettings || []
@@ -66,6 +67,29 @@ document.addEventListener('DOMContentLoaded', () => {
       searchInputElement.value = settings.searchInput || ""
       languageElement.value = settings.language || ""
       filterToggle.checked = settings.filterEnabled || false
+    })
+  })
+
+  deleteSettingsButton.addEventListener("click", () => {
+    const selectedIndex = savedSettingsSelect.value
+    if (selectedIndex === "") {
+      return
+    }
+    chrome.storage.local.get(["savedSettings"]).then((data) => {
+      const savedSettings = data.savedSettings || []
+      const idx = parseInt(selectedIndex, 10)
+      if (idx >= 0 && idx < savedSettings.length) {
+        savedSettings.splice(idx, 1)
+        chrome.storage.local.set({ savedSettings }).then(() => {
+          savedSettingsSelect.innerHTML = ""
+          savedSettings.forEach((setting, i) => {
+            const option = document.createElement("option")
+            option.value = i
+            option.textContent = setting.name
+            savedSettingsSelect.appendChild(option)
+          })
+        })
+      }
     })
   })
 
@@ -171,13 +195,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })
 
-document.addEventListener('DOMContentLoaded', function () {
-  // Initialize Bootstrap popovers
-  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+document.addEventListener("DOMContentLoaded", function () {
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
   popoverTriggerList.forEach(function (popoverTriggerEl) {
-      new bootstrap.Popover(popoverTriggerEl, {
-          container: 'body',
-          trigger: 'hover' // Change to 'click' if needed
-      });
-  });
-});
+    new bootstrap.Popover(popoverTriggerEl, {
+      container: "body",
+      trigger: "hover"
+    })
+  })
+})
